@@ -15,6 +15,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.customweatherapp.ui.theme.CustomWeatherAppTheme
 import com.example.customweatherapp.viewModel.CustomWeatherViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,6 +24,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     private lateinit var customWeatherViewModel: CustomWeatherViewModel
+    private lateinit var navController: NavHostController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +38,7 @@ class MainActivity : ComponentActivity() {
                     )
                 }
                 customWeatherViewModel = hiltViewModel<CustomWeatherViewModel>()
+                navController = rememberNavController()
 
                 customWeatherViewModel.getWeatherTermsGlossary()
                 val weatherTermsGlossary = customWeatherViewModel.weatherTermsGlossaryMutableStateFlow.collectAsState().value
