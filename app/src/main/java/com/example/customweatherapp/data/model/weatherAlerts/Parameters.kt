@@ -2,7 +2,7 @@ package com.example.customweatherapp.data.model.weatherAlerts
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class WeatherInteractiveProcessingDescription(
+/*data class WeatherInteractiveProcessingDescription(
     @JsonProperty("AWIPSidentifier")
     var advancedWeatherInteractiveProcessingSystemIdList: List<String> = emptyList(),
     @JsonProperty("BLOCKCHANNEL")
@@ -14,4 +14,4 @@ data class WeatherInteractiveProcessingDescription(
     @JsonProperty("WMOidentifier")
     var worldMeteorologicalOrganizationIdList: List<String> = emptyList(),
     var eventEndingTimeList: List<String> = emptyList()
-)
+)*/
