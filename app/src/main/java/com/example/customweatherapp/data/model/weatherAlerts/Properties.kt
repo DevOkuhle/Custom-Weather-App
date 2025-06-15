@@ -2,14 +2,15 @@ package com.example.customweatherapp.data.model.weatherAlerts
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class WeatherProperties (
+/*data class WeatherProperties (
     @JsonProperty("@id")
     var identifier: String = "",
     @JsonProperty("@type")
     var type: String = "",
     @JsonProperty("affectedZones")
     var affectedZoneList: List<String> = emptyList(),
-    var areaDesc: String = "",
+    @JsonProperty("areaDesc")
+    var areaDescription: String = "",
     var category: String = "",
     var certainty: String = "",
     var code: String = "",
@@ -39,4 +40,4 @@ data class WeatherProperties (
     var status: String = "",
     var urgency: String = "",
     var web: String = ""
-)
+)*/
