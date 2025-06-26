@@ -1,9 +1,12 @@
 package com.example.customweatherapp.data.model.weatherTermsGlossary
 
-import com.fasterxml.jackson.annotation.JsonProperty
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonElement
 
+@Serializable
 data class WeatherTermsGlossaryResponse(
-    @JsonProperty("@context")
-    var context: List<Any> = emptyList(),
+    @SerialName("@context")
+    var context: JsonElement? = null,
     var glossary: List<Glossary> = emptyList()
 )

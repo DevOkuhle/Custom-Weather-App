@@ -1,10 +1,13 @@
 package com.example.customweatherapp.data.model.forecastByGridPoints.response
 
-import com.fasterxml.jackson.annotation.JsonProperty
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonElement
 
+@Serializable
 data class WeatherForecastByGridPointsResponse(
-    @JsonProperty("@context")
-    var context: List<Any> = emptyList(),
+    @SerialName("@context")
+    var context: JsonElement? = null,
     var geometry: Geometry = Geometry(),
     var properties: Properties = Properties(),
     var type: String = ""

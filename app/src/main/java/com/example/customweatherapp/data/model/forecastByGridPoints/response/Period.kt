@@ -1,10 +1,12 @@
 package com.example.customweatherapp.data.model.forecastByGridPoints.response
 
-import com.fasterxml.jackson.annotation.JsonProperty
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class Period(
     var detailedForecast: String = "",
-    @JsonProperty("dewpoint")
+    @SerialName("dewpoint")
     var dewPoint: DewPoint = DewPoint(),
     var endTime: String = "",
     var icon: String = "",

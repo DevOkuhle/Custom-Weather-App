@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="areaCodes">
+        <item>AL | Alabama</item>
+        <item>AK | Alaska</item>
+        <item>AS | American Samoa</item>
+        <item>AS | Arkansas</item>
+        <item>AZ | Arizona</item>
+        <item>CA | California</item>
+        <item>CO | Colorado </item>
+        <item>CT | Connecticut </item>
+        <item>DE | Delaware</item>
+        <item>DC | District of Columbia</item>
+        <item>FL | Florida</item>
+        <item>GA | Georgia</item>
+        <item>GU | Guam </item>
+        <item>HI | Hawaii</item>
+        <item>ID | Idaho</item>
+        <item>IL | Illinois</item>
+        <item>IN | Indiana</item>
+        <item>IA | Iowa</item>
+        <item>KS | Kansas</item>
+        <item>KY | Kentucky</item>
+        <item>LA | Louisiana </item>
+        <item>ME | Maine</item>
+        <item>MD | Maryland</item>
+        <item>MA | Massachusetts</item>
+        <item>MI | Michigan</item>
+        <item>MN | Minnesota</item>
+        <item>MS | Mississippi</item>
+        <item>MO | Missouri</item>
+        <item>MT | Montana</item>
+        <item>NE | Nebraska</item>
+        <item>NV | Nevada</item>
+        <item>NH | New Hampshire</item>
+        <item>NJ | New Jersey</item>
+        <item>NM | New Mexico</item>
+        <item>NY | New York</item>
+        <item>NC | North Carolina</item>
+        <item>ND | North Dakota</item>
+        <item>OH | Ohio</item>
+        <item>OK | Oklahoma</item>
+        <item>OR | Oregon</item>
+        <item>PA | Pennsylvania</item>
+        <item>PR | Puerto Rico</item>
+        <item>RI | Rhode Island</item>
+        <item>SC | South Carolina</item>
+        <item>SD | South Dakota</item>
+        <item>TN | Tennessee</item>
+        <item>TX | Texas</item>
+        <item>UT | Utah</item>
+        <item>VT | Vermont</item>
+        <item>VI | U.S. Virgin Islands</item>
+        <item>VA | Virginia</item>
+        <item>WA | Washington</item>
+        <item>WV | West Virginia</item>
+        <item>WI | Wisconsin</item>
+        <item>WY | Wyoming</item>
+        <item>MP | Northern Mariana Islands</item>
+        <item>PW | Palau</item>
+        <item>FM | Federated States of Micronesia</item>
+        <item>MH | Marshall Islands</item>
+    </string-array>
+    <string-array name="regionalCodes">
+        <item>AL | Atlantic (North Atlantic basin)</item>
+        <item>AT | Atlantic (tropical Atlantic)</item>
+        <item>GL | Great Lakes</item>
+        <item>GM | Gulf of Mexico</item>
+        <item>PA | Pacific (North or general)</item>
+        <item>PI | Pacific Islands or Western Pacific</item>
+    </string-array>
+    <string-array name="metricUnitsConversion">
+        <item>SI | International System of Units</item>
+        <item>US | United States Customary Units</item>
+    </string-array>
+    <string-array name="forecastOfficeAndCity">
+        <item>BMX | Birmingham, Alabama;46:54</item>
+        <item>HUN |	Huntsville, Alabama;47:56</item>
+        <item>MOB |	Mobile, Alabama;50:46</item>
+        <item>AFC |	Anchorage, Alaska;50:77</item>
+        <item>ALU |	Bethel, Alaska;40:77</item>
+        <item>AFG |	Fairbanks, Alaska;47:80</item>
+        <item>PPG |	Pago Pago, American Samoa;10:13</item>
+        <item>FGZ | Flagstaff, Arizona;69:63</item>
+        <item>PSR |	Phoenix, Arizona;69:62</item>
+        <item>AJK |	Juneau, Alaska;53:77</item>
+        <item>EKA |	Eureka, California;70:72</item>
+        <item>LOX |	Los Angeles, California;70:62</item>
+        <item>MTR |	Monterey, California;70:63</item>
+        <item>REV |	Riverside, California;70:61</item>
+        <item>STO |	Sacramento, California;69:67</item>
+        <item>SGX |	San Diego, California;69:58</item>
+        <item>BOU |	Boulder, Colorado;61:72</item>
+        <item>GJT |	Grand Junction, Colorado;63:65</item>
+        <item>PUB |	Pueblo, Colorado;62:64</item>
+        <item>JAX |	Jacksonville, Florida;58:40</item>
+        <item>KEY |	Key West, Florida;70:32</item>
+        <item>MLB |	Melbourne, Florida;67:37</item>
+        <item>MFL |	Miami, Florida;68:32</item>
+        <item>TAE |	Tallahassee, Florida;58:44</item>
+        <item>TBW |	Tampa Bay, Florida;68:38</item>
+        <item>FFC |	Peachtree City, Georgia;44:49</item>
+        <item>HPA |	Honolulu, Hawaii;130:43</item>
+        <item>BOI |	Boise, Idaho;66:70</item>
+        <item>PIH |	Pocatello, Idaho;67:69</item>
+        <item>LOT |	Chicago, Illinois;55:68</item>
+        <item>ILX |	Lincoln, Illinois;56:66</item>
+        <item>IND |	Indianapolis, Indiana;54:66</item>
+        <item>DVN |	Davenport, Iowa;60:65</item>
+        <item>DMX |	Des Moines, Iowa;58:65</item>
+        <item>DDC |	Dodge City, Kansas;60:58</item>
+        <item>GLD |	Goodland, Kansas;62:61</item>
+        <item>TOP |	Topeka, Kansas;58:61</item>
+        <item>ICT |	Wichita, Kansas;59:59</item>
+        <item>JKL |	Jackson, Kentucky;54:61</item>
+        <item>LMK |	Louisville, Kentucky;54:64</item>
+        <item>PAH |	Paducah, Kentucky;54:61</item>
+        <item>LCH |	Lake Charles, Louisiana;52:46</item>
+        <item>LIX |	New Orleans, Louisiana;56:45</item>
+        <item>SHV |	Shreveport, Louisiana;53:49</item>
+        <item>CAR | Caribou, Maine;66:108</item>
+        <item>GYX | Gray, Maine;75:90</item>
+        <item>BOX | Norton, Massachusetts;69:75</item>
+        <item>DTX |	Detroit, Michigan;52:71</item>
+        <item>APX |	Gaylord, Michigan;55:77</item>
+        <item>GRR |	Grand Rapids, Michigan;52:69</item>
+        <item>MQT |	Marquette, Michigan;55:77</item>
+        <item>DLH |	Duluth, Minnesota;60:72</item>
+        <item>TWC |	Twin Cities, Minnesota;58:72</item>
+        <item>MPX |	Minneapolis, Minnesota;58:72</item>
+        <item>JAN |	Jackson, Mississippi;45:52</item>
+        <item>EAX |	Kansas City, Missouri;57:60</item>
+        <item>LSX |	St. Louis, Missouri;57:63</item>
+        <item>SGF |	Springfield, Missouri;58:61</item>
+        <item>TFX |	Great Falls, Montana;65:72</item>
+        <item>MSO |	Missoula, Montana;64:73</item>
+        <item>GID |	Hastings, Nebraska;58:63</item>
+        <item>LBF |	North Platte, Nebraska;60:64</item>
+        <item>OAX |	Omaha, Nebraska;59:65</item>
+        <item>VEF |	Valley, Nebraska;58:63</item>
+        <item>LKN |	Elko, Nevada;70:67</item>
+        <item>UNR |	Reno, Nevada;71:67</item>
+        <item>PHI | Mt. Holly, New Jersey;57:62</item>
+        <item>ABQ | Albuquerque, New Mexico;61:64</item>
+        <item>ALY | AlbaNew York, New York;51:85</item>
+        <item>BGM | Binghamton, New York;56:57</item>
+        <item>BUF | Buffalo, New York;47:77</item>
+        <item>OKX | Upton, New York;69:74</item>
+        <item>MHX | Newport, North Carolina;58:45</item>
+        <item>RAH | Raleigh, North Carolina;51:56</item>
+        <item>ILM | Wilmington, North Carolina;54:40</item>
+        <item>BIS |	Bismarck, North Dakota;52:73</item>
+        <item>FGF |	Grand Forks, North Dakota;52:74</item>
+        <item>CLE | Cleveland, Ohio;56:68</item>
+        <item>ILN | Wilmington, Ohio;60:56</item>
+        <item>OUN |	Norman, Oklahoma;59:53</item>
+        <item>TSA |	Tulsa, Oklahoma;58:54</item>
+        <item>MFR |	Medford, Oregon;71:69</item>
+        <item>ONP | Newport, Oregon;70:70</item>
+        <item>ONA |	Ontario, Oregon;69:69</item>
+        <item>PDT |	Pendleton, Oregon;68:71</item>
+        <item>PQR |	Portland, Oregon;69:72</item>
+        <item>PBZ | Pittsburgh, Pennsylvania;53:57</item>
+        <item>CTP | State College, Pennsylvania;54:55</item>
+        <item>CHS | Charleston, South Carolina;45:44</item>
+        <item>CAE | Columbia, South Carolina;36:46</item>
+        <item>GSP | Greenville, South Carolina;42:50</item>
+        <item>ABR |	Aberdeen, South Dakota;58:69</item>
+        <item>MRX |	Morristown, Tennessee;53:60</item>
+        <item>OHX |	Nashville, Tennessee;53:56</item>
+        <item>AMA | Amarillo, Texas;64:55</item>
+        <item>EWX |	Austin, Texas;55:49</item>
+        <item>BRO | Brownsville, Texas;49:46</item>
+        <item>CRP | Corpus Christi, Texas;55:38</item>
+        <item>EPZ |	El Paso, Texas;67:55</item>
+        <item>FWD |	Fort Worth, Texas;54:49</item>
+        <item>HGX |	Houston, Texas;59:43</item>
+        <item>LUB |	Lubbock, Texas;65:54</item>
+        <item>MAF |	Midland, Texas;66:52</item>
+        <item>SJT |	San Angelo, Texas;63:48</item>
+        <item>SLC |	Salt Lake City, Utah;67:66</item>
+        <item>BTV | Burlington, Vermont;50:100</item>
+        <item>RNK | Blacksburg, Virginia;55:58</item>
+        <item>LWX | Sterling, Virginia;54:60</item>
+        <item>AKQ | Wakefield, Virginia;50:60</item>
+        <item>SEW |	Seattle, Washington;68:73</item>
+        <item>OTX |	Spokane, Washington;67:72</item>
+        <item>RLX | Charleston, West Virginia;54:58</item>
+        <item>GRB |	Green Bay, Wisconsin;56:70</item>
+        <item>ARX |	La Crosse, Wisconsin;55:70</item>
+        <item>MKX |	Milwaukee, Wisconsin;56:69</item>
+        <item>LZK |	Little Rock, AR;56:56</item>
+        <item>CYS |	Cheyenne, Wyoming;61:69</item>
+        <item>RIW |	Riverton, Wyoming;62:68</item>
+    </string-array>
+</resources>
