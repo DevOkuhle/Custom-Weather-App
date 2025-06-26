@@ -1,10 +1,12 @@
 package com.example.customweatherapp.data.model.weatherAlerts
 
-import com.fasterxml.jackson.annotation.JsonProperty
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class Geocode(
-    @JsonProperty("SAME")
-    var specificAreaMessageEncodingList: List<String> = emptyList(),
-    @JsonProperty("UGC")
-    var universalGeographicCodeList: List<String> = emptyList()
+    @SerialName("SAME")
+    val specificAreaMessageEncodingList: List<String>,
+    @SerialName("UGC")
+    val universalGeographicCodeList: List<String>
 )

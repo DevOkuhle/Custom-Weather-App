@@ -1,43 +1,43 @@
 package com.example.customweatherapp.data.model.weatherAlerts
 
-import com.fasterxml.jackson.annotation.JsonProperty
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonElement
 
-/*data class WeatherProperties (
-    @JsonProperty("@id")
-    var identifier: String = "",
-    @JsonProperty("@type")
-    var type: String = "",
-    @JsonProperty("affectedZones")
-    var affectedZoneList: List<String> = emptyList(),
-    @JsonProperty("areaDesc")
-    var areaDescription: String = "",
-    var category: String = "",
-    var certainty: String = "",
-    var code: String = "",
-    var description: String = "",
-    var effective: String = "",
-    var ends: String = "",
-    var event: String = "",
-    var eventCode: EventCode = EventCode(),
-    var expires: String = "",
-    var geocode: Geocode = Geocode(),
-    var headline: String = "",
-    var id: String = "",
-    var instruction: String? = "",
-    var language: String = "",
-    var messageType: String = "",
-    var onset: String = "",
-    @JsonProperty("parameters")
-    var weatherInteractiveProcessingDescription: WeatherInteractiveProcessingDescription = WeatherInteractiveProcessingDescription(),
-    @JsonProperty("references")
-    var referenceList: List<Reference>? = emptyList(),
-    var response: String = "",
-    var scope: String = "",
-    var sender: String = "",
-    var senderName: String = "",
-    var sent: String = "",
-    var severity: String = "",
-    var status: String = "",
-    var urgency: String = "",
-    var web: String = ""
-)*/
+@Serializable
+data class Properties(
+    @SerialName("@id")
+    val atId: String?,
+    @SerialName("@type")
+    val atType: String?,
+    val id: String?,
+    @SerialName("areaDesc")
+    val areaDescription: String?,
+    val geocode: Geocode?,
+    val affectedZones: List<String>?,
+    val references: List<JsonElement>?,
+    val sent: String?,
+    val effective: String?,
+    val onset: String?,
+    val expires: String?,
+    val ends: String?,
+    val status: String?,
+    val messageType: String?,
+    val category: String?,
+    val severity: String?,
+    val certainty: String?,
+    val urgency: String?,
+    val event: String?,
+    val sender: String?,
+    val senderName: String?,
+    val headline: String?,
+    val description: String?,
+    val instruction: String?,
+    val response: String?,
+    val parameters: Parameters?,
+    val scope: String?,
+    val code: String?,
+    val language: String?,
+    val web: String?,
+    val eventCode: EventCode?
+)

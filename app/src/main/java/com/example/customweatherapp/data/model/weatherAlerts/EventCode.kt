@@ -1,10 +1,12 @@
 package com.example.customweatherapp.data.model.weatherAlerts
 
-import com.fasterxml.jackson.annotation.JsonProperty
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class EventCode(
-    @JsonProperty("NationalWeatherService")
-    var nationalWeatherServiceList: List<String> = emptyList(),
-    @JsonProperty("SAME")
-    var specificAreaMessageEncodingList: List<String> = emptyList()
+    @SerialName("SAME")
+    val specificAreaMessageEncodingList: List<String>,
+    @SerialName("NationalWeatherService")
+    val nationalWeatherService: List<String>
 )

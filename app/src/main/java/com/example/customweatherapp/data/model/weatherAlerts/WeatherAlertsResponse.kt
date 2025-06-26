@@ -1,12 +1,14 @@
-package com.example.customweatherapp.data.model.weatherAlerts
+import com.example.customweatherapp.data.model.weatherAlerts.Feature
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonElement
 
-import com.fasterxml.jackson.annotation.JsonProperty
-
+@Serializable
 data class WeatherAlertsResponse(
-    @JsonProperty("@context")
-    var alertContext: List<Any> = emptyList(),
-    var featuresList: List<Feature> = emptyList(),
-    var title: String = "",
+    @SerialName("@context")
+    var context: JsonElement? = null,
     var type: String = "",
-    var updated: String = ""
+    var features: List<Feature> = emptyList(),
+    val title: String = "",
+    val updated: String = ""
 )
