@@ -22,5 +22,4 @@ The app makes use of the following technologies:
 - Kotlin
 - The principle of separation of concerns
 - Reusability of functions
-- Room Database
-too name a few.
+- Room Database \ntoo name a few.
