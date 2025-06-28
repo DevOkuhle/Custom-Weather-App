@@ -138,13 +138,11 @@ fun PopulateEachAlertResponseCard(modifier: Modifier, alertFeature: Feature) = w
 @Composable
 fun PopulateWeatherForecastResponseCard(modifier: Modifier, weatherForecastByGridPointsResponse: WeatherForecastByGridPointsResponse, innerPadding: PaddingValues, selectedCity: String, isForecastHourly: Boolean = true) = with(weatherForecastByGridPointsResponse) {
     var selectedWeatherPeriodIndex by rememberSaveable { mutableIntStateOf(0) }
-    val scrollState = rememberScrollState()
     val period = properties.periods[selectedWeatherPeriodIndex]
     Column(
         modifier = modifier.fillMaxWidth()
             .padding(innerPadding)
-            .verticalColumnScrollbar(scrollState)
-            .verticalScroll(scrollState)
+            .verticalScroll(rememberScrollState())
     ) {
         Text(
             modifier = modifier.padding(
@@ -158,9 +156,9 @@ fun PopulateWeatherForecastResponseCard(modifier: Modifier, weatherForecastByGri
         )
         PopulatePeriodInstanceHeader(modifier, period)
         Row(
-            modifier = modifier.padding(dimensionResource(R.dimen.padding_8dp))
-                .horizontalScroll(scrollState),
-            verticalAlignment = Alignment.CenterVertically
+            modifier = modifier.horizontalScroll(rememberScrollState())
+                .padding(dimensionResource(R.dimen.padding_8dp))
+
         ) {
             properties.periods.forEachIndexed { index, period ->
                 Column(
@@ -548,9 +546,9 @@ private fun storeSelectedItemListForAlertOrForecastEvents(isAlertEvent: Boolean,
         }
         !isAlertEvent && alertCodeOrForecastList.size == 2 -> {
             if (isForecastHourly) {
-                magnitudeConversions = selectedItem.split("|").first().trim()
-            } else {
                 magnitudeConversionsForHourlyForecast = selectedItem.split("|").first().trim()
+            } else {
+                magnitudeConversions = selectedItem.split("|").first().trim()
             }
         }
         !isAlertEvent && !isForecastHourly -> {
@@ -582,40 +580,6 @@ fun mapWindDirection(abbreviatedWindDirection: String): String {
         }
     }
     return windDirection.trim()
-}
-
-@Composable
-fun Modifier.verticalColumnScrollbar(
-    scrollState: ScrollState,
-    width: Dp = dimensionResource(R.dimen.padding_4dp),
-    showScrollBarTrack: Boolean = true,
-    scrollBarTrackColor: Color = if (isSystemInDarkTheme()) Color.LightGray else Color.Gray,
-    scrollBarColor: Color = if (isSystemInDarkTheme()) Color.White else Color.Black,
-    scrollBarCornerRadius: Float = 4f,
-    endPadding: Float = 12f
-): Modifier {
-    return drawWithContent {
-        drawContent()
-        val viewportHeight = this.size.height
-        val totalContentHeight = scrollState.maxValue.toFloat() + viewportHeight
-        val scrollValue = scrollState.value.toFloat()
-        val scrollBarHeight = (viewportHeight / totalContentHeight) * viewportHeight
-        val scrollBarStartOffset = (scrollValue / totalContentHeight) * viewportHeight
-        if (showScrollBarTrack) {
-            drawRoundRect(
-                cornerRadius = CornerRadius(scrollBarCornerRadius),
-                color = scrollBarTrackColor,
-                topLeft = Offset(this.size.width - endPadding, 0f),
-                size = Size(width.toPx(), viewportHeight),
-            )
-        }
-        drawRoundRect(
-            cornerRadius = CornerRadius(scrollBarCornerRadius),
-            color = scrollBarColor,
-            topLeft = Offset(this.size.width - endPadding, scrollBarStartOffset),
-            size = Size(width.toPx(), scrollBarHeight)
-        )
-    }
 }
 
 fun evaluateIfFailureResponseMutableStateFlowIsNotCached(previousSelectedValue: String, newlySelectedValue: String, newFailureResponse: ParcelableFailureResponse): Boolean {

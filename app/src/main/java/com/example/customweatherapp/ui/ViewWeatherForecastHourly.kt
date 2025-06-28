@@ -30,6 +30,7 @@ fun ViewWeatherForecastHourly(composableFunctionAttributes: ComposableFunctionAt
     val officeIdAndGridPoint = selectedHourlyForecastLocation.split(";")
     val coordinates = officeIdAndGridPoint.last().split(":")
     val officeIdAndCity = officeIdAndGridPoint.first().split("|")
+    val selectedForecastLocationWithSelectedUnits = selectedHourlyForecastLocation + magnitudeConversionsForHourlyForecast
 
     Scaffold(modifier = modifier.fillMaxWidth(),
         topBar = {
@@ -48,17 +49,17 @@ fun ViewWeatherForecastHourly(composableFunctionAttributes: ComposableFunctionAt
             weatherForecastByGridPointsResponse = customWeatherViewModel.weatherForecastByGridPointsHourlyMutableStateFlow.collectAsState().value
             failureResponse = customWeatherViewModel.failureResponseMutableStateFlow.collectAsState().value
             customWeatherViewModel.isWeatherAPISuccessful?.let { isWeatherAPISuccessful ->
-                if (isWeatherAPISuccessful && weatherForecastByGridPointsResponse.properties.periods.isNotEmpty() && evaluateIfForecastHourlyMutableStateFlowIsNotCached(weatherForecastByGridPointsResponse, selectedHourlyForecastLocation)) {
+                if (isWeatherAPISuccessful && weatherForecastByGridPointsResponse.properties.periods.isNotEmpty() && evaluateIfForecastHourlyMutableStateFlowIsNotCached(weatherForecastByGridPointsResponse, selectedForecastLocationWithSelectedUnits)) {
                     loading = false
                 } else if (failureResponse.detail.isNotEmpty() && evaluateIfFailureResponseMutableStateFlowIsNotCached(previousHourlyForecastInformation, selectedHourlyForecastLocation, failureResponse)) {
-                    previousHourlyForecastInformation = selectedHourlyForecastLocation
+                    previousHourlyForecastInformation = selectedForecastLocationWithSelectedUnits
                     previousFailureResponse = failureResponse
                     HandleFailureEvents(composableFunctionAttributes)
                 }
             }
         } else {
             PopulateWeatherForecastResponseCard(modifier, weatherForecastByGridPointsResponse, innerPadding, officeIdAndCity.last().trim(), true)
-            previousHourlyForecastInformation = selectedHourlyForecastLocation
+            previousHourlyForecastInformation = selectedForecastLocationWithSelectedUnits
             previousHourlyWeatherForecastByGridPointsResponse = weatherForecastByGridPointsResponse
         }
     }
