@@ -15,7 +15,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -29,10 +28,7 @@ import com.example.customweatherapp.util.ShareCustomWeatherObjects.failureRespon
 import com.example.customweatherapp.util.ShareCustomWeatherObjects.previousAreaCode
 import com.example.customweatherapp.util.ShareCustomWeatherObjects.previousAreaCodeWeatherAlertsResponse
 import com.example.customweatherapp.util.ShareCustomWeatherObjects.previousFailureResponse
-import com.example.customweatherapp.util.ShareCustomWeatherObjects.previousForecastInformation
-import com.example.customweatherapp.util.ShareCustomWeatherObjects.selectedForecastLocation
 import com.example.customweatherapp.util.evaluateIfFailureResponseMutableStateFlowIsNotCached
-import com.example.customweatherapp.util.verticalColumnScrollbar
 import com.example.customweatherapp.viewModel.CustomWeatherViewModel
 
 @Composable
@@ -63,7 +59,6 @@ fun ViewWeatherAlertsByAreaCode(composableFunctionAttributes: ComposableFunction
         } else {
             Column(
                 modifier = modifier.padding(innerPadding)
-                    .verticalColumnScrollbar(scrollState)
                     .verticalScroll(scrollState)
             ) {
                 Text(

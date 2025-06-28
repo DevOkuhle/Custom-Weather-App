@@ -30,7 +30,6 @@ import com.example.customweatherapp.util.ShareCustomWeatherObjects.previousFailu
 import com.example.customweatherapp.util.ShareCustomWeatherObjects.previousRegionalCodeWeatherAlertsResponse
 import com.example.customweatherapp.util.ShareCustomWeatherObjects.previousRegionalCode
 import com.example.customweatherapp.util.evaluateIfFailureResponseMutableStateFlowIsNotCached
-import com.example.customweatherapp.util.verticalColumnScrollbar
 import com.example.customweatherapp.viewModel.CustomWeatherViewModel
 
 @Composable
@@ -62,7 +61,6 @@ fun ViewWeatherAlertsByRegionalCode(composableFunctionAttributes: ComposableFunc
         } else {
             Column(
                 modifier = modifier.padding(innerPadding)
-                    .verticalColumnScrollbar(scrollState)
                     .verticalScroll(scrollState)
             ) {
                 Text(

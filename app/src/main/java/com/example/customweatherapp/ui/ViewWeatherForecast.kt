@@ -30,6 +30,7 @@ fun ViewWeatherForecast(composableFunctionAttributes: ComposableFunctionAttribut
     val officeIdAndGridPoint = selectedForecastLocation.split(";")
     val coordinates = officeIdAndGridPoint.last().split(":")
     val officeIdAndCity = officeIdAndGridPoint.first().split("|")
+    val selectedForecastLocationWithSelectedUnits = selectedForecastLocation + magnitudeConversions
 
     Scaffold(modifier = modifier.fillMaxWidth(),
         topBar = {
@@ -48,17 +49,17 @@ fun ViewWeatherForecast(composableFunctionAttributes: ComposableFunctionAttribut
             weatherForecastByGridPointsResponse = customWeatherViewModel.weatherForecastByGridPointsMutableStateFlow.collectAsState().value
             failureResponse = customWeatherViewModel.failureResponseMutableStateFlow.collectAsState().value
             customWeatherViewModel.isWeatherAPISuccessful?.let { isWeatherAPISuccessful ->
-                if (isWeatherAPISuccessful && weatherForecastByGridPointsResponse.properties.periods.isNotEmpty() && evaluateIfForecastMutableStateFlowIsNotCached(weatherForecastByGridPointsResponse, selectedForecastLocation)) {
+                if (isWeatherAPISuccessful && weatherForecastByGridPointsResponse.properties.periods.isNotEmpty() && evaluateIfForecastMutableStateFlowIsNotCached(weatherForecastByGridPointsResponse, selectedForecastLocationWithSelectedUnits)) {
                     loading = false
                 } else if (failureResponse.detail.isNotEmpty() && evaluateIfFailureResponseMutableStateFlowIsNotCached(previousForecastInformation, selectedForecastLocation, failureResponse)) {
-                    previousForecastInformation = selectedForecastLocation
+                    previousForecastInformation = selectedForecastLocationWithSelectedUnits
                     previousFailureResponse = failureResponse
                     HandleFailureEvents(composableFunctionAttributes)
                 }
             }
         } else {
             PopulateWeatherForecastResponseCard(modifier, weatherForecastByGridPointsResponse, innerPadding, officeIdAndCity.last().trim(), false)
-            previousForecastInformation = selectedForecastLocation
+            previousForecastInformation = selectedForecastLocationWithSelectedUnits
             previousWeatherForecastByGridPointsResponse = weatherForecastByGridPointsResponse
         }
     }
