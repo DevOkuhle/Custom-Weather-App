@@ -30,8 +30,10 @@ import com.example.customweatherapp.util.SetUpScaffoldTopBar
 import com.example.customweatherapp.util.ShareCustomWeatherObjects.weatherAlertTypes
 import com.example.customweatherapp.viewModel.CustomWeatherViewModel
 import androidx.core.net.toUri
+import com.example.customweatherapp.util.HandleFailureEvents
 import com.example.customweatherapp.util.ShareCustomWeatherObjects.failureResponse
 import com.example.customweatherapp.util.ShareCustomWeatherObjects.previousFailureForAlertsTypes
+import com.example.customweatherapp.util.ShareCustomWeatherObjects.previousFailureForGlossaryTerms
 import com.example.customweatherapp.util.ShareCustomWeatherObjects.previousFailureResponse
 import com.example.customweatherapp.util.isFailureResponseMutableStateFlowNotCached
 
@@ -49,11 +51,13 @@ fun ViewAllWeatherAlertTypes(composableFunctionAttributes: ComposableFunctionAtt
             DisplayCircularProgressIndicator(innerPadding)
             customWeatherViewModel.viewAlertTypesButtonClicked()
             weatherAlertTypes = customWeatherViewModel.allAlertTypesMutableStateFlow.collectAsState().value
-            if (weatherAlertTypes.eventTypes.isNotEmpty() && isFailureResponseMutableStateFlowNotCached(failureResponse, previousFailureForAlertsTypes)) {
-                previousFailureResponse = failureResponse
-                previousFailureForAlertsTypes = failureResponse
+            if (weatherAlertTypes.eventTypes.isNotEmpty()) {
                 customWeatherViewModel.addAlertTypesToDatabase(weatherAlertTypes.eventTypes)
                 loading = false
+            } else if (failureResponse.detail.isNotEmpty() && isFailureResponseMutableStateFlowNotCached(failureResponse, previousFailureForGlossaryTerms)) {
+                previousFailureResponse = failureResponse
+                previousFailureForGlossaryTerms = failureResponse
+                HandleFailureEvents(composableFunctionAttributes)
             }
         } else {
             Column(

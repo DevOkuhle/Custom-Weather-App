@@ -14,7 +14,6 @@ import com.example.customweatherapp.repository.CustomWeatherRepository
 import com.example.customweatherapp.room.AlertTypes
 import com.example.customweatherapp.room.WeatherTermsGlossary
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -79,25 +78,25 @@ class CustomWeatherViewModel @Inject constructor(private val customWeatherReposi
     }
 
     private fun isAlertTypesTableEmpty() {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             customWeatherRepository.isAlertTypesTableNotEmpty(viewModelScope).collectLatest { isAlertTypesTableEmpty = it }
         }
     }
 
     private fun addAllWeatherTypes(alertTypes: List<AlertTypes>) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             customWeatherRepository.addAlertTypes(alertTypes)
         }
     }
 
     private fun addAllWeatherTermsGlossary(weatherTermsGlossary: List<WeatherTermsGlossary>) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             customWeatherRepository.addWeatherTermsGlossary(weatherTermsGlossary)
         }
     }
 
     fun readAlertTypesFromDatabase() {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             customWeatherRepository.readAllAlertTypes().collectLatest { alertTypes ->
                 val alertTypesTerms = mutableListOf<String>()
                 alertTypes.forEach { alertType ->
@@ -108,7 +107,7 @@ class CustomWeatherViewModel @Inject constructor(private val customWeatherReposi
     }
 
     fun readWeatherTermsGlossaryFromDatabase() {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             val weatherTermsGlossaryList = mutableListOf<Glossary>()
             customWeatherRepository.readAllWeatherTermsGlossary().collectLatest { weatherTermsGlossary ->
                 weatherTermsGlossary.forEach { weatherTerm ->
@@ -173,8 +172,8 @@ class CustomWeatherViewModel @Inject constructor(private val customWeatherReposi
 
                     is APICallResult.Success -> {
                         isWeatherAPISuccessful = true
-                        response.successResponse?.let { weatherTermsGlossaryResponse ->
-                            customWeatherMutableStateFlow.update { weatherTermsGlossaryResponse }
+                        response.successResponse?.let { weatherResponse ->
+                            customWeatherMutableStateFlow.update { weatherResponse }
                         }
                     }
                 }
