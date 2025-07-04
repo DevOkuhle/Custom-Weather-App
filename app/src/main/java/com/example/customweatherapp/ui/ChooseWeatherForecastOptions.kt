@@ -15,7 +15,6 @@ import com.example.customweatherapp.data.model.CustomWeatherGenericCardAttribute
 import com.example.customweatherapp.ui.navigation.CustomWeatherNavigationScreen
 import com.example.customweatherapp.util.PopulateCardForAlertOrForecast
 import com.example.customweatherapp.util.SetUpScaffoldTopBar
-import com.example.customweatherapp.util.ShareCustomWeatherObjects.selectedHourlyForecastLocation
 
 @Composable
 fun ChooseWeatherForecastOptions(composableFunctionAttributes: ComposableFunctionAttributes) = with(composableFunctionAttributes) {

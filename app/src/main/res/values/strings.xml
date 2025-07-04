@@ -44,7 +44,7 @@
     <string name="wind_speed">Wind speed: %s</string>
     <string name="precipitation">Precipitation: %s%%</string>
     <string name="wind_direction">Wind direction: %s</string>
-    <string name="dew_point">Dew point:%s</string>
+    <string name="dew_point">Dew point: %s</string>
     <string name="detailed_forecast">Detailed forecast:\n</string>
     <string name="term">Term</string>
     <string name="definition">Definition</string>

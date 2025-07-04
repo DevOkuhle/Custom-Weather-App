@@ -1,6 +1,5 @@
 package com.example.customweatherapp.util
 
-import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -68,23 +67,20 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.ui.draw.drawWithContent
-import androidx.compose.ui.geometry.CornerRadius
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.text.style.BaselineShift
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.sp
 import com.example.customweatherapp.data.api.ParcelableFailureResponse
 import com.example.customweatherapp.data.model.CustomWeatherGenericCardAttributes
 import com.example.customweatherapp.data.model.forecastByGridPoints.response.Period
 import com.example.customweatherapp.data.model.forecastByGridPoints.response.WeatherForecastByGridPointsResponse
+import com.example.customweatherapp.util.Constants.Companion.DATE_FORMAT
+import com.example.customweatherapp.util.Constants.Companion.DAY_OF_WEEK_FORMAT
 import com.example.customweatherapp.util.Constants.Companion.DEGREES_SYMBOL
 import com.example.customweatherapp.util.Constants.Companion.DEGREE_CHARACTER
 import com.example.customweatherapp.util.Constants.Companion.EAST
+import com.example.customweatherapp.util.Constants.Companion.ENGLISH_DATE_FORMAT
 import com.example.customweatherapp.util.Constants.Companion.NORTH
 import com.example.customweatherapp.util.Constants.Companion.SOUTH
 import com.example.customweatherapp.util.Constants.Companion.WEST
@@ -96,6 +92,8 @@ import com.example.customweatherapp.util.ShareCustomWeatherObjects.selectedForec
 import com.example.customweatherapp.util.ShareCustomWeatherObjects.selectedHourlyForecastLocation
 import com.example.customweatherapp.util.ShareCustomWeatherObjects.selectedRegionCode
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.Locale
 import kotlin.math.roundToInt
 
@@ -166,7 +164,7 @@ fun PopulateWeatherForecastResponseCard(modifier: Modifier, weatherForecastByGri
                 ) {
                     SetTimeForWeatherCard(modifier, period)
                     Card(
-                        modifier = modifier.width(if (period.name.isEmpty()) dimensionResource(R.dimen.padding_100dp) else dimensionResource(R.dimen.padding_150dp))
+                        modifier = modifier.width(dimensionResource(R.dimen.padding_100dp))
                             .clickable { selectedWeatherPeriodIndex = index },
                         colors = CardDefaults.cardColors(
                             containerColor = if (selectedWeatherPeriodIndex == index)
@@ -195,8 +193,10 @@ fun PopulateWeatherForecastResponseCard(modifier: Modifier, weatherForecastByGri
 
 @Composable
 fun PopulateRemainingWeatherPeriodAttributes(modifier: Modifier, period: Period) {
-    val formattedDateToEnglish = formatDate(period.startTime.split("T").first())
-    val nameOfDay = if (period.name.isNotEmpty()) "${period.name}, $formattedDateToEnglish" else formattedDateToEnglish
+    val dateInput = period.startTime.split("T").first()
+    val formattedDateToEnglish = formatDate(dateInput)
+    val dayOfTheWeek = if (period.name.isNotEmpty()) period.name else getDayOfWeek(dateInput)
+    val nameOfDay = if (dayOfTheWeek.isNotEmpty()) "$dayOfTheWeek, $formattedDateToEnglish" else formattedDateToEnglish
     Column {
         Text(
             modifier = modifier.padding(
@@ -264,11 +264,19 @@ private fun determineTemperatureUnit(temperatureUnit: String): String {
 }
 
 private fun formatDate(inputDate: String): String {
-    val inputFormatter = SimpleDateFormat("yyyy-MM-dd", Locale.US)
-    val outputFormatter = SimpleDateFormat("d MMMM yyyy", Locale.US)
+    val inputFormatter = SimpleDateFormat(DATE_FORMAT, Locale.US)
+    val outputFormatter = SimpleDateFormat(ENGLISH_DATE_FORMAT, Locale.US)
 
     val date = inputFormatter.parse(inputDate) ?: return ""
     return outputFormatter.format(date)
+}
+
+fun getDayOfWeek(inputDate: String): String {
+    val sdf = SimpleDateFormat(DATE_FORMAT, Locale.getDefault())
+    val date = sdf.parse(inputDate)
+
+    val dayFormat = SimpleDateFormat(DAY_OF_WEEK_FORMAT, Locale.getDefault())
+    return dayFormat.format(date ?: "")
 }
 
 @Composable
@@ -327,7 +335,7 @@ fun SetCardAttributes(modifier: Modifier,period: Period) {
         Text(
             modifier = modifier.padding(dimensionResource(R.dimen.padding_8dp)),
             text = period.name,
-            style = MaterialTheme.typography.bodyLarge
+            style = MaterialTheme.typography.bodySmall
         )
     }
     AsyncImage(

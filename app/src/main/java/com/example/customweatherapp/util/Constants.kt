@@ -15,8 +15,9 @@ class Constants {
         const val VIEW_WEATHER_TERMS_GLOSSARY_SCREEN = "ViewWeatherTermsGlossary"
         const val VIEW_WEATHER_API_FAILURE_SCREEN = "CustomWeatherAPIFailure"
         const val HEIGHT_SCREEN_QUARTER_DIVISOR = 4
-        const val MAXIMUM_CHUCK_SIZE = 10
-        const val AVERAGE_CHUCK_SIZE = 5
+        const val DATE_FORMAT = "yyyy-MM-dd"
+        const val ENGLISH_DATE_FORMAT = "d MMMM yyyy"
+        const val DAY_OF_WEEK_FORMAT = "EEEE"
         const val DEGREES_SYMBOL = "degC"
         const val SELECTED_AREA_CODE = "AreaToken"
         const val SELECTED_REGIONAL_CODE = "RegionalToken"
